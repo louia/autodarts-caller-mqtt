@@ -47,8 +47,6 @@ function wsConnect() {
   const socket = new WebSocket(`ws://${HOST_WEBSOCKET}:3180/api/events`);
 
   socket.addEventListener("message", (event) => {
-    console.log(event.data);
-
     const data = JSON.parse(event.data) as Event;
 
     if (data.type === "state") {
